@@ -1,0 +1,10 @@
+{
+  "python.defaultInterpreterPath": "${env:HOME}/.pyenv/shims/python",
+  "python.venvPath": "${workspaceFolder}/.venv",
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.analysis.extraPaths": ["./tasks"],
+  "terminal.integrated.env.osx": {
+    "PYENV_ROOT": "${env:HOME}/.pyenv",
+    "PATH": "${env:HOME}/.pyenv/shims:${env:PATH}"
+  }
+}

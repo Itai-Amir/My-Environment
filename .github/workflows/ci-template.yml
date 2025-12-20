@@ -1,0 +1,21 @@
+name: CI (Template)
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: [self-hosted, mac-local]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Debug Python
+        run: python3 --version
+      - name: Create venv and install dependencies
+        run: |
+          python3 -m venv .venv
+          source .venv/bin/activate
+          python -m pip install --upgrade pip
+          pip install pytest pytest-cov
+      - name: Run tests
+        run: |
+          source .venv/bin/activate
+          pytest tests --cov=./ --cov-branch --cov-fail-under=100
